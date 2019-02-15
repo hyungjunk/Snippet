@@ -469,3 +469,18 @@ for p in itertools.permutations("ABCD"):
 # ('A', 'C', 'D', 'B')
 # ('A', 'D', 'B', 'C')
 # ('A', 'D', 'C', 'B')
+
+
+# ----- 환경변수에 등록하고 value 꺼내오기 (config.json과 같이) ---- #
+import os
+
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv()
+env_path = Path(".") / ".env"
+load_dotenv(dotenv_path=env_path)
+
+print(os.getenv("HELLO"))
+
+#.env 파일은 HELLO=WORLD
