@@ -1,3 +1,1 @@
-# Study
-
 playground / code snippet
