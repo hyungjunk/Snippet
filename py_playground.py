@@ -498,3 +498,58 @@ class NestedDict(dict):
 
     def __sub__(self, other):
         return other
+
+    
+# SQLAlchemy simple connection making, filtering
+
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, String, Integer
+from sqlalchemy import Sequence
+from sqlalchemy.orm import sessionmaker
+
+engine = create_engine("sqlite:///:memory:", echo=False)
+Base = declarative_base()
+
+if engine is not None:
+    Session = sessionmaker(bind=engine)
+    session = Session()
+else:
+    Session = sessionmaker()
+    engine = create_engine("sqlite:///:memory:", echo=False)
+    Session.configure(bind=engine)
+    session = Session()
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    no = Column(Integer, Sequence("user_id_seq"), primary_key=True)
+    id = Column(String(20))
+    name = Column(String(20))
+
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+    def __repr__(self):
+        return "no : {2} //id : {0} // name : {1}".format(self.id, self.name, self.no)
+
+Base.metadata.create_all(engine)
+
+a = User("alpha", "world")
+b = User("beta", "world")
+session.add_all([a, b])
+session.commit()
+
+# filtering example
+# for id, name in session.query(User.id, User.name):
+#     print(id, name)
+
+# for row in session.query(User).all():
+#     print(row)
+
+print(session.query(User).filter(User.id.like("%a")).one_or_none())
+# print(session.query(User).filter(User.id.in_(["alpha", "beta"])).all())
+# print(session.query(User).filter_by(id="alpha"))
+# print(session.query(User).filter(User.id == "alpha"))    
