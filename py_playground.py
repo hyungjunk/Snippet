@@ -562,4 +562,9 @@ if __name__ == "__main__":
     args = parser.parser_args()
     print(args.code)
     print(args.repeats)
+
+# __main__ 의 장점은 실행기점일 때 설정 외에도
+# 1) 커맨드라인에서 <python 디렉토리명> 을 입력하면 디렉토리 내의 __main__.py을 찾고 이를 자동으로 실행한다는 것
+# 2) zip파일 안에 __main__이 있다면 zipfile 라이브러리를 이용하여 zip을 풀지 않고도 실행시킬 수 있다는 것
+# 사실 2번은 __main__빨은 아니고 파이썬의 특징임. 그냥 zip파일내의 소스도 실행가능한데 zip과 __main__의 궁합이 잘 맞는 듯. 
     
