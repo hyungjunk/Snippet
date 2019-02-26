@@ -552,4 +552,14 @@ session.commit()
 print(session.query(User).filter(User.id.like("%a")).one_or_none())
 # print(session.query(User).filter(User.id.in_(["alpha", "beta"])).all())
 # print(session.query(User).filter_by(id="alpha"))
-# print(session.query(User).filter(User.id == "alpha"))    
+# print(session.query(User).filter(User.id == "alpha"))
+
+import argparse
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description == __doc__)
+    parser.add_argument("code", type=str, help="Python code snippet")
+    parser.add_argument("-r", "--repeats", type=int, default=10, help="Number of repeated times")
+    args = parser.parser_args()
+    print(args.code)
+    print(args.repeats)
+    
