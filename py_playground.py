@@ -573,3 +573,4 @@ from datetime import datetime
 
 k = "2019/01/01"
 fk = datetime.strptime(k, "%Y/%m/%d")
+datetime.strftime(fk, "%Y-%m-%d")
