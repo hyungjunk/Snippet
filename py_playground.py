@@ -568,3 +568,8 @@ if __name__ == "__main__":
 # 2) zip파일 안에 __main__이 있다면 zipfile 라이브러리를 이용하여 zip을 풀지 않고도 실행시킬 수 있다는 것
 # 사실 2번은 __main__빨은 아니고 파이썬의 특징임. 그냥 zip파일내의 소스도 실행가능한데 zip과 __main__의 궁합이 잘 맞는 듯. 
     
+
+from datetime import datetime
+
+k = "2019/01/01"
+fk = datetime.strptime(k, "%Y/%m/%d")
