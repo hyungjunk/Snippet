@@ -574,3 +574,13 @@ from datetime import datetime
 k = "2019/01/01"
 fk = datetime.strptime(k, "%Y/%m/%d")
 datetime.strftime(fk, "%Y-%m-%d")
+
+# loggin snippet
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+filehandler = logging.FileHandler("log/my.log")
+streamhandler = logging.StreamHandler()
+logger.addHandler(filehandler)
+logger.addHandler(streamhandler)
