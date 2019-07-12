@@ -575,6 +575,8 @@ k = "2019/01/01"
 fk = datetime.strptime(k, "%Y/%m/%d")
 datetime.strftime(fk, "%Y-%m-%d")
 
+datetime.strptime("2019-06-11 06:12:05.567009", "%Y-%m-%d %H:%M:%S.%f")
+
 # loggin snippet
 import logging
 
