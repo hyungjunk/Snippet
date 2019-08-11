@@ -1,6 +1,13 @@
-var qr = $("#qrcode");
-var callback = function do_print() {
-    console.log("doc ready");
-};
-observer = new MutationObserver(callback);
-observer.observe(qr[0], {attributes:true, childList:true, subtree:true});
+// Ternary Operator
+var drink = age >= 18 ? 'beer' : 'juice';
+
+// Switch Statement
+var job = 'teacher';
+switch (job) {
+  case 'teacher':
+    console.log(firstName + ' teaches kids how to code.');
+    break
+  case 'driver':
+    console.log(firstName + ' drives uber in Lisbon.')
+    break
+}
