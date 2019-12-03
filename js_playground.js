@@ -19,4 +19,6 @@ switch (true){
 
 // data selector
 $('div').data('product-id') // is equivalent to
-document.querySelector('div').dataset.productId // Wow!
+
+1) document.querySelector('div').dataset.productId // Wow! but it only works IE>=11. So I can use like
+2) document.querySelector('div').getAttribute('data-product-id')
