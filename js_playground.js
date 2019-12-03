@@ -16,3 +16,7 @@ switch (true){
     console.log('This always run?');
     console.log('No, only when not any condition meets defined above.');
 }
+
+// data selector
+$('div').data('product-id') // is equivalent to
+document.querySelector('div').dataset.productId // Wow!
