@@ -21,3 +21,22 @@ createAnimal(Dog);
  * 데코레이터
  */
 
+ function hello(n: number) {
+    console.log('outer is ', n)
+    return (target:any, name:any, descriptor:any) => {
+        console.log('original ', descriptor.value())
+        descriptor.value = () => 1000
+    }
+}
+
+class A {
+
+    @hello(100)
+    test() {
+        return 55
+    }
+}
+
+const a = new A();
+const res = a.test();
+console.log(res);
