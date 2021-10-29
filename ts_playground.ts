@@ -40,3 +40,11 @@ class A {
 const a = new A();
 const res = a.test();
 console.log(res);
+
+/**
+ Defined type guard
+*/
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
